@@ -41,6 +41,7 @@ jobs:
           echo "$CHANGED_FILES"
           if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'apps/backend/'; then
             echo "APP_FOLDER=backend" >> $GITHUB_ENV
+            echo "Detected"
           else
             echo "Not detected"
           fi
