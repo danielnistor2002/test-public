@@ -32,6 +32,6 @@ jobs:
         if: github.event_name != 'workflow_dispatch'
         run: |
           echo "Detecting changed app..."
-          echo ${ github.event.before } 
-          echo ${ github.sha }
+          echo "1- ${github.event.before}" 
+          echo "2- ${github.sha}"
           
