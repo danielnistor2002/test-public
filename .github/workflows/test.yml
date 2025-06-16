@@ -31,7 +31,10 @@ jobs:
       - name: Detect app folder from changes (for push events)
         if: github.event_name != 'workflow_dispatch'
         run: |
-          echo "Detecting changed app..."
-          echo "1- ${github.event.before}" 
-          echo "2- ${github.sha}"
+          # Get files changed in this commit or push range
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          
+          # Extract the top-level folders
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
           
