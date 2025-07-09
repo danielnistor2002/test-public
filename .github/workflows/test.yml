@@ -39,7 +39,8 @@ jobs:
       - name: Debug2
         if: github.event_name == 'workflow_dispatch'
         run: |
-          echo "CHECKOUT_REF=${{ github.event.inputs.release }}" >> $GITHUB_ENV
+          CHECKOUT_REF="${{ github.event.inputs.release }}"
+          echo "CHECKOUT_REF=$CHECKOUT_REF" >> $GITHUB_ENV
           echo "CHECKOUT_REF: $CHECKOUT_REF"
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
