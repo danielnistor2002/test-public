@@ -42,15 +42,16 @@ jobs:
         if: github.event_name != 'workflow_dispatch'
         run: |
           # Get files changed in this commit or push range
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          #CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
           
           # Extract the top-level folders
-          echo "Changed files:"
-          echo "$CHANGED_FILES"
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'apps/backend/'; then
-            echo "APP_FOLDER=backend" >> $GITHUB_ENV
-            echo "Detected"
-          else
-            echo "Not detected"
-          fi
+          #echo "Changed files:"
+          #echo "$CHANGED_FILES"
+          #if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'apps/backend/'; then
+          #  echo "APP_FOLDER=backend" >> $GITHUB_ENV
+          #  echo "Detected"
+          #else
+          #  echo "Not detected"
+          #fi
+          echo "END"
           
