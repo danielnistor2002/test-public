@@ -10,6 +10,8 @@ on:
     paths:
       - 'apps/backend/**'
       - 'apps/frontend/**'
+    tags:
+      - 'api-v*.*.*'
   pull_request:
     branches: [ "main" ]
 
@@ -29,6 +31,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Fetch all history
+          ref: ${{ github.ref }}
 
       - name: Detect app folder from changes (for push events)
         if: github.event_name != 'workflow_dispatch'
